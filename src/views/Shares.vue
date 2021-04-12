@@ -1,16 +1,27 @@
 <template>
-  <v-data-table
-      :headers="headers"
-      :items="shares"
-      :items-per-page="10"
-      class="elevation-1"
-  >
-    <template v-slot:[`item.actions`]="{ item }">
-      {{ item.id }}
-      <v-icon small class="mr-2" @click="editShare(item.id)">mdi-pencil</v-icon>
-      <v-icon small @click="deleteShare(item.id)">mdi-delete</v-icon>
-    </template>
-  </v-data-table>
+  <v-card>
+    <v-card-title>
+      Shares
+      <v-spacer></v-spacer>
+      <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+      ></v-text-field>
+    </v-card-title>
+    <v-data-table
+        :headers="headers"
+        :items="shares"
+        :search="search"
+        class="elevation-1"
+    >
+      <template v-slot:[`item.actions`]="{ item }">
+        a{{ item.id }}
+      </template>
+    </v-data-table>
+  </v-card>
 </template>
 
 <script>
@@ -20,6 +31,7 @@ export default {
   name: "Shares",
   data() {
     return {
+      search: "",
       headers: [
         {text: 'Name', value: 'name'},
         {text: 'Download Limit', value: 'download_limit'},
