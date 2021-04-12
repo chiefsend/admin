@@ -38,11 +38,14 @@ export default {
         })
   },
   methods: {
-    editShare: function(shareID) {
+    editShare: function (shareID) {
       this.$router.push({name: 'Share', params: {id: shareID}})
     },
-    deleteShare: function(shareID) {
-      console.log(`todo: delete: ${shareID}`)
+    deleteShare: function (shareID) {
+      ax.delete(`/share/${shareID}`)
+          .catch((error) => {
+            console.log(error)
+          })
     }
   }
 }
