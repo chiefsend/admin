@@ -1,7 +1,7 @@
 <template>
-  <div>
-    Dies wird eine Landing Page
-  </div>
+  <v-container>
+    Landing
+  </v-container>
 </template>
 
 <script>
