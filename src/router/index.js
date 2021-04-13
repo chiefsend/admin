@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '@/views/Home.vue'
+import Home from '@/views/Home'
 import Shares from '@/views/Shares'
 import Share from '@/views/Share'
+import Error from "@/views/Error"
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const routes = [
         path: '/share/:id',
         name: 'Share',
         component: Share
+    },
+    {
+        path: '*',
+        name: 'Error',
+        component: Error
     }
 ]
 
