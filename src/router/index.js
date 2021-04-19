@@ -1,33 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '@/views/Home'
-import Shares from '@/views/Shares'
-import Share from '@/views/Share'
-import Error from "@/views/Error"
-
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
         name: 'Home',
-        component: Home
+        component: () => import("@/views/Home.vue")
     },
     {
         path: '/shares',
         name: 'Shares',
-        component: Shares
+        component: () => import("@/views/Shares.vue")
     },
     {
         path: '/share/:id',
         name: 'Share',
-        component: Share
+        component: () => import("@/views/Share.vue")
     },
     {
         path: '*',
         name: 'Error',
-        component: Error
+        component: () => import("@/views/Error.vue")
     }
 ]
 
