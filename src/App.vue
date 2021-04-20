@@ -33,30 +33,17 @@
       <v-toolbar-title>ChiefSend</v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- Right -->
-      <v-avatar color="pink" @click="$vuetify.theme.dark = !$vuetify.theme.dark">
-        <v-icon dark>mdi-theme-light-dark</v-icon>
-      </v-avatar>
-<!--      <v-menu open-on-hover top offset-y>-->
-<!--        <template v-slot:activator="{ on, attrs }">-->
-<!--          <v-avatar color="indigo" v-bind="attrs" v-on="on">-->
-<!--            <v-icon dark>mdi-account-circle</v-icon>-->
-<!--          </v-avatar>-->
-<!--        </template>-->
-<!--        <v-list>-->
-<!--          <v-list-item v-for="(item, index) in acc_items" :key="index">-->
-<!--            <v-list-item-icon>-->
-<!--              <v-icon>{{ item.icon }}</v-icon>-->
-<!--            </v-list-item-icon>-->
-<!--            <v-list-item-content>-->
-<!--              <v-list-item-title>{{ item.title }}</v-list-item-title>-->
-<!--            </v-list-item-content>-->
-<!--          </v-list-item>-->
-<!--        </v-list>-->
-<!--      </v-menu>-->
+      <v-btn icon @click="$vuetify.theme.dark = !$vuetify.theme.dark">
+        <v-avatar color="blue">
+          <v-icon dark>mdi-theme-light-dark</v-icon>
+        </v-avatar>
+      </v-btn>
     </v-app-bar>
 
     <v-main>
-      <router-view/>
+      <v-container>
+        <router-view/>
+      </v-container>
     </v-main>
   </v-app>
 </template>

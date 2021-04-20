@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <v-row>
+  <div>
+    <v-row class="mb-4">
       <v-col>
         <v-card color="pink" dark>
           <v-card-title class="text-h5">
@@ -27,10 +27,13 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-row>
+
+    <v-divider />
+
+    <v-row class="mt-4">
       heatmap
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script>

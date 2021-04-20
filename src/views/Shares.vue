@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div>
     <v-card>
 
       <v-card-title>
@@ -42,7 +42,7 @@
       </v-card>
     </v-dialog>
 
-  </v-container>
+  </div>
 </template>
 
 <script>

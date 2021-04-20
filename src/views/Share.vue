@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div>
     <v-card class="mb-4">
       <v-card-title>Share</v-card-title>
       <v-card-subtitle>Edit share properties</v-card-subtitle>
@@ -55,7 +55,8 @@
         </template>
       </v-data-table>
     </v-card>
-  </v-container>
+
+  </div>
 </template>
 
 <script>
