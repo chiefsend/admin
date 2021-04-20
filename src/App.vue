@@ -1,5 +1,6 @@
 <template>
   <v-app>
+
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
@@ -35,25 +36,23 @@
       <v-avatar color="pink" @click="$vuetify.theme.dark = !$vuetify.theme.dark">
         <v-icon dark>mdi-theme-light-dark</v-icon>
       </v-avatar>
-      <v-spacer></v-spacer>
-      <v-menu open-on-hover top offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-avatar color="indigo" v-bind="attrs" v-on="on">
-            <v-icon dark>mdi-account-circle</v-icon>
-          </v-avatar>
-        </template>
-        <v-list>
-          <v-list-item v-for="(item, index) in acc_items" :key="index">
-            <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-
+<!--      <v-menu open-on-hover top offset-y>-->
+<!--        <template v-slot:activator="{ on, attrs }">-->
+<!--          <v-avatar color="indigo" v-bind="attrs" v-on="on">-->
+<!--            <v-icon dark>mdi-account-circle</v-icon>-->
+<!--          </v-avatar>-->
+<!--        </template>-->
+<!--        <v-list>-->
+<!--          <v-list-item v-for="(item, index) in acc_items" :key="index">-->
+<!--            <v-list-item-icon>-->
+<!--              <v-icon>{{ item.icon }}</v-icon>-->
+<!--            </v-list-item-icon>-->
+<!--            <v-list-item-content>-->
+<!--              <v-list-item-title>{{ item.title }}</v-list-item-title>-->
+<!--            </v-list-item-content>-->
+<!--          </v-list-item>-->
+<!--        </v-list>-->
+<!--      </v-menu>-->
     </v-app-bar>
 
     <v-main>
@@ -74,7 +73,7 @@ export default {
       ],
       drawer: null,
       acc_items: [
-        {title: 'Settings',icon: 'mdi-account-settings'},
+        {title: 'Settings', icon: 'mdi-account-settings'},
         {title: 'Logout', icon: 'mdi-logout'},
       ]
     }

@@ -22,7 +22,7 @@
             Total attachment size
           </v-card-title>
           <v-card-subtitle>
-            x attachments: 4356 MB
+            {{ humanFileSize(stats.total_size) }}
           </v-card-subtitle>
         </v-card>
       </v-col>
