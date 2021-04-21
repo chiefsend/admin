@@ -20,6 +20,11 @@ const routes = [
         component: () => import("@/views/Share.vue")
     },
     {
+        path: '/jobs',
+        name: 'Jobs',
+        component: () => import("@/views/Jobs.vue")
+    },
+    {
         path: '*',
         name: 'Error',
         component: () => import("@/views/Error.vue")
