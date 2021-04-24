@@ -42,7 +42,7 @@
 
     <v-main>
       <v-container>
-        <errors />
+        <events />
         <router-view/>
       </v-container>
     </v-main>
@@ -50,11 +50,11 @@
 </template>
 
 <script>
-import Errors from "./components/Events";
+import Events from "./components/Events";
 
 export default {
   name: 'App',
-  components: {Errors},
+  components: {Events},
   data() {
     return {
       nav_items: [

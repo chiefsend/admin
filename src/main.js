@@ -2,8 +2,25 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify';
+import em from "./eventHub";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+// handle errors
+window.onerror = event => {
+    console.log("kek");
+    console.log(event);
+    em.emit('error', event);
+};
+// handle rejected promises
+window.addEventListener('unhandledrejection', function (event) {
+    //event.promise contains the promise object
+    //event.reason contains the reason for the rejection
+    console.log("kek");
+    console.log(event);
+    em.emit('error', event);
+});
+
 
 new Vue({
     router,
