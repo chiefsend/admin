@@ -38,6 +38,7 @@
 
 <script>
 import ax from "@/api";
+import em from "@/eventHub";
 
 export default {
   name: 'Home',
@@ -52,7 +53,7 @@ export default {
           this.stats = response.data
         })
         .catch((error) => {
-          console.log(error)
+          em.emit('error', error);
         })
   }
 }

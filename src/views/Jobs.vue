@@ -18,7 +18,8 @@
 </template>
 
 <script>
-// import ax from "@/api";
+import ax from "@/api";
+import em from "@/eventHub";
 
 export default {
   name: "Jobs",
@@ -33,14 +34,14 @@ export default {
       jobs: []
     }
   },
-  // mounted() {
-  //   ax.get(`/jobs`)
-  //       .then((response) => {
-  //         this.jobs = response.data
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       })
-  // }
+  mounted() {
+    ax.get(`/jobs`)
+        .then((response) => {
+          this.jobs = response.data
+        })
+        .catch((error) => {
+          em.emit('error', error);
+        })
+  }
 }
 </script>

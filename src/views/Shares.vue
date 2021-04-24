@@ -47,6 +47,7 @@
 
 <script>
 import ax from "@/api";
+import em from "@/eventHub";
 
 export default {
   name: "Shares",
@@ -72,7 +73,7 @@ export default {
           this.shares = response.data
         })
         .catch((error) => {
-          console.log(error)
+          em.emit('error', error);
         })
   },
   methods: {
@@ -89,7 +90,7 @@ export default {
             this.shares.splice(this.indexDelete, 1);
           })
           .catch((error) => {
-            console.log(error); // SHOW alert
+            em.emit('error', error);
           })
       this.dialogDelete = false;
     }

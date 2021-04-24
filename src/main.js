@@ -8,7 +8,6 @@ Vue.config.productionTip = false;
 
 // handle errors
 window.onerror = event => {
-    console.log("kek");
     console.log(event);
     em.emit('error', event);
 };
@@ -16,7 +15,6 @@ window.onerror = event => {
 window.addEventListener('unhandledrejection', function (event) {
     //event.promise contains the promise object
     //event.reason contains the reason for the rejection
-    console.log("kek");
     console.log(event);
     em.emit('error', event);
 });

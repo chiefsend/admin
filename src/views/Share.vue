@@ -51,7 +51,7 @@
 
       <v-data-table :headers="headers" :items="share.files" :search="search">
         <template v-slot:item.actions="{ item }">
-          <v-icon small @click="console.log('delete attachment' + item.filename)">mdi-delete</v-icon>
+          <v-icon small @click="console.log('delete attachment' + item.filename)">mdi-delete</v-icon> <!-- TODO -->
         </template>
       </v-data-table>
     </v-card>
@@ -60,7 +60,8 @@
 </template>
 
 <script>
-import ax from "@/api"
+import ax from "@/api";
+import em from "@/eventHub";
 
 export default {
   name: "Share",
@@ -83,7 +84,7 @@ export default {
           this.share = response.data
         })
         .catch((error) => {
-          console.log(error)
+          em.emit('error', error);
         })
   },
 }
