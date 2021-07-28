@@ -1,10 +1,16 @@
 <template>
   <div>
-    <v-alert v-for="ev in events" :key="ev.id" :type="ev.category" dense dismissible
-             @input="removeEvent(ev)">
+    <v-alert
+      v-for="ev in events"
+      :key="ev.id"
+      :type="ev.category"
+      dense
+      dismissible
+      @input="removeEvent(ev)"
+    >
       {{ ev.text }}
     </v-alert>
-    <v-divider class="mb-3" v-if="events && events.length > 0"/>
+    <v-divider class="mb-3" v-if="events && events.length > 0" />
   </div>
 </template>
 
@@ -12,25 +18,25 @@
 import em from "@/eventHub";
 
 export default {
-  name: 'events',
+  name: "events",
   data() {
     return {
       id: 0,
-      events: []
-    }
+      events: [],
+    };
   },
   mounted() {
     let ev = this.addEvent;
-    em.on('error', function (error) {
+    em.on("error", function(error) {
       ev({
-        category: 'error',
-        text: error.message
+        category: "error",
+        text: error.message,
       });
     });
-    em.on('warning', function (warning) {
+    em.on("warning", function(warning) {
       ev({
-        category: 'warning',
-        text: warning
+        category: "warning",
+        text: warning,
       });
     });
   },
@@ -39,10 +45,10 @@ export default {
       this.events.splice(this.events.indexOf(ev), 1);
     },
     addEvent(ev) {
-      ev = {...ev, id: this.id};
+      ev = { ...ev, id: this.id };
       this.events.push(ev);
       this.id++;
-    }
-  }
-}
+    },
+  },
+};
 </script>

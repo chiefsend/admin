@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
@@ -16,7 +15,12 @@
       <v-divider></v-divider>
 
       <v-list dense nav>
-        <v-list-item v-for="item in nav_items" :key="item.title" link :to="item.route">
+        <v-list-item
+          v-for="item in nav_items"
+          :key="item.title"
+          link
+          :to="item.route"
+        >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -43,7 +47,7 @@
     <v-main>
       <v-container>
         <events />
-        <router-view/>
+        <router-view />
       </v-container>
     </v-main>
   </v-app>
@@ -53,21 +57,21 @@
 import Events from "./components/Events";
 
 export default {
-  name: 'App',
-  components: {Events},
+  name: "App",
+  components: { Events },
   data() {
     return {
       nav_items: [
-        {title: 'Dashboard', icon: 'mdi-view-dashboard', route: '/'},
-        {title: 'Shares', icon: 'mdi-cloud-upload', route: '/shares'},
-        {title: 'Jobs', icon: 'mdi-application-cog', route: '/jobs'},
+        { title: "Dashboard", icon: "mdi-view-dashboard", route: "/" },
+        { title: "Shares", icon: "mdi-cloud-upload", route: "/shares" },
+        { title: "Jobs", icon: "mdi-application-cog", route: "/jobs" },
       ],
       drawer: null,
       acc_items: [
-        {title: 'Settings', icon: 'mdi-account-settings'},
-        {title: 'Logout', icon: 'mdi-logout'},
-      ]
-    }
+        { title: "Settings", icon: "mdi-account-settings" },
+        { title: "Logout", icon: "mdi-logout" },
+      ],
+    };
   },
 };
 </script>

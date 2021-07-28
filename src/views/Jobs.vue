@@ -4,16 +4,14 @@
       todo redis status und anzahl gequeueter jobs und so
     </v-row>
 
-    <v-divider/>
+    <v-divider />
 
     <v-card class="mt-4">
       <v-card-title>
         Jobs
       </v-card-title>
-      <v-data-table :headers="headers" :items="jobs">
-      </v-data-table>
+      <v-data-table :headers="headers" :items="jobs"> </v-data-table>
     </v-card>
-
   </div>
 </template>
 
@@ -26,22 +24,22 @@ export default {
   data() {
     return {
       headers: [
-        {text: 'ID', value: 'id'},
-        {text: 'Name', value: 'name'},
-        {text: 'Enqueued At', value: 'enqueued_at'},
-        {text: 'Scheduled At', value: 'scheduled_at'},
+        { text: "ID", value: "id" },
+        { text: "Name", value: "name" },
+        { text: "Enqueued At", value: "enqueued_at" },
+        { text: "Scheduled At", value: "scheduled_at" },
       ],
-      jobs: []
-    }
+      jobs: [],
+    };
   },
   mounted() {
     ax.get(`/jobs`)
-        .then((response) => {
-          this.jobs = response.data
-        })
-        .catch((error) => {
-          em.emit('error', error);
-        })
-  }
-}
+      .then((response) => {
+        this.jobs = response.data;
+      })
+      .catch((error) => {
+        em.emit("error", error);
+      });
+  },
+};
 </script>

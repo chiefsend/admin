@@ -7,19 +7,26 @@
         <v-form>
           <v-row>
             <v-col>
-              <v-text-field v-model="share.name" label="Name"/>
+              <v-text-field v-model="share.name" label="Name" />
             </v-col>
             <v-col>
-              <v-text-field v-model="share.download_limit" label="Download Limit"/>
+              <v-text-field
+                v-model="share.download_limit"
+                label="Download Limit"
+              />
             </v-col>
             <v-col>
-              <v-checkbox label="Public" v-model="share.is_public"/>
+              <v-checkbox label="Public" v-model="share.is_public" />
             </v-col>
           </v-row>
           <v-row>
             <v-col>
-              <v-text-field v-model="share.expires" type="time" label="Expires"
-                            prepend-icon="mdi-calendar"></v-text-field>
+              <v-text-field
+                v-model="share.expires"
+                type="time"
+                label="Expires"
+                prepend-icon="mdi-calendar"
+              ></v-text-field>
             </v-col>
           </v-row>
         </v-form>
@@ -34,28 +41,32 @@
       </v-card-actions>
     </v-card>
 
-    <v-divider/>
+    <v-divider />
 
     <v-card class="mt-4">
       <v-card-title>
         Attachments
         <v-spacer></v-spacer>
         <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Search"
-            single-line
-            hide-details
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
         ></v-text-field>
       </v-card-title>
 
       <v-data-table :headers="headers" :items="share.files" :search="search">
         <template v-slot:item.actions="{ item }">
-          <v-icon small @click="console.log('delete attachment' + item.filename)">mdi-delete</v-icon> <!-- TODO -->
+          <v-icon
+            small
+            @click="console.log('delete attachment' + item.filename)"
+            >mdi-delete</v-icon
+          >
+          <!-- TODO -->
         </template>
       </v-data-table>
     </v-card>
-
   </div>
 </template>
 
@@ -70,22 +81,22 @@ export default {
       menu: false,
       search: "",
       headers: [
-        {text: 'UUID', value: 'id'},
-        {text: 'Filename', value: 'filename'},
-        {text: 'Size', value: 'filesize'},
-        {text: 'Actions', value: 'actions', sortable: false},
+        { text: "UUID", value: "id" },
+        { text: "Filename", value: "filename" },
+        { text: "Size", value: "filesize" },
+        { text: "Actions", value: "actions", sortable: false },
       ],
       share: {},
-    }
+    };
   },
   mounted() {
     ax.get(`/share/${this.$route.params.id}`)
-        .then((response) => {
-          this.share = response.data
-        })
-        .catch((error) => {
-          em.emit('error', error);
-        })
+      .then((response) => {
+        this.share = response.data;
+      })
+      .catch((error) => {
+        em.emit("error", error);
+      });
   },
-}
+};
 </script>

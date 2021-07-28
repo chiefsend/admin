@@ -1,4 +1,4 @@
-import {TinyEmitter} from "tiny-emitter";
+import { TinyEmitter } from "tiny-emitter";
 
 let em = new TinyEmitter();
 

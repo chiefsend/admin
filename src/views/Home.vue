@@ -41,20 +41,20 @@ import ax from "@/api";
 import em from "@/eventHub";
 
 export default {
-  name: 'Home',
+  name: "Home",
   data() {
     return {
-      stats: {}
-    }
+      stats: {},
+    };
   },
   mounted() {
     ax.get(`/shares/stats`)
-        .then((response) => {
-          this.stats = response.data
-        })
-        .catch((error) => {
-          em.emit('error', error);
-        })
-  }
-}
+      .then((response) => {
+        this.stats = response.data;
+      })
+      .catch((error) => {
+        em.emit("error", error);
+      });
+  },
+};
 </script>
