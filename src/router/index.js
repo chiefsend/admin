@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import checkKey from "@/auth";
+// import checkKey from "@/auth";
 
 Vue.use(VueRouter);
 
@@ -43,12 +43,12 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  if (checkKey()) {
-    next();
-  } else {
-    next("/login");
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   if (checkKey()) {
+//     next();
+//   } else {
+//     next("/login");
+//   }
+// });
 
 export default router;
